@@ -20,3 +20,4 @@ num_parkingspace = 100
 num_parkingspace -= 1
 
 print("Number of avaliable parkingspace:" + str(parkingspace))
+
