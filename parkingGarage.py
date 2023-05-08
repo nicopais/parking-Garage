@@ -1,10 +1,10 @@
 # Start Your Code here
 class ParkingGarage():
-    def __init__(self, total_tickets, total_parking_spaces, available_tickets, available_parking_spaces):
+    def __init__(self, total_tickets, total_parking_spaces,available_tickets,available_parking_spaces):
         self.total_tickets = total_tickets
         self.total_parking_spaces = total_parking_spaces
         self.available_tickets = available_tickets
-        self.available_parking_spaces = available_parking_spaces
+        self.avaliable_parking_spaces = available_parking_spaces
 
     def is_Available(self):
         if self.available_tickets > 0 and self.available_parking_spaces > 0:
@@ -13,9 +13,9 @@ class ParkingGarage():
             return False
         
     def issue_tickets(self):
-        if self.is_available():
-            self.available_tickets -= 1
-            self.available_parking_spaces -= 1
+        if self.is_avaliable():
+            self.avaliable_tickets -= 1
+            self.avaliable_parking_spaces -= 1
             print("Ticket issued. Please proceed to park")
         else:
             print("Sorry, the ParkingGarage is currently full, please try again later.")
@@ -44,8 +44,8 @@ class ParkingGarage():
 
     
 
-new_ticket = ParkingGarage()
-print(new_ticket.isAvaliable())
+new_ticket = ParkingGarage(total_tickets=100,total_parking_spaces=100, available_tickets=100,available_parking_spaces=100)
+print(new_ticket.is_Avaliable())
 print(new_ticket.pay_For_Parking())
 print(new_ticket.leave_Garage())
 
