@@ -1,19 +1,24 @@
 # Start Your Code here
 class ParkingGarage():
-    def __init__(self):
-        self.ticketamount = []
-        self.parkingspace = []
-        self.currentTicket = {}
+    def __init__(self, total_tickets, total_parking_spaces, available_tickets, available_parking_spaces):
+        self.total_tickets = total_tickets
+        self.total_parking_spaces = total_parking_spaces
+        self.available_tickets = available_tickets
+        self.available_parking_spaces = available_parking_spaces
 
-    def isAvaliable(self):
-        self.ticketamount = [100]
-        self.parkingspace = [100]
-        for i in range(len(self.ticketamount)):
-            self.ticketamount[i] = self.ticketamount[i] - 1
-            print(self.ticketamount)
-        for j in range(len(self.parkingspace)):
-            self.parkingspace[j] = self.parkingspace[j] - 1
-            print(self.parkingspace)
+    def is_Available(self):
+        if self.available_tickets > 0 and self.available_parking_spaces > 0:
+            return True
+        else:
+            return False
+        
+    def issue_tickets(self):
+        if self.is_available():
+            self.available_tickets -= 1
+            self.available_parking_spaces -= 1
+            print("Ticket issued. Please proceed to park")
+        else:
+            print("Sorry, the ParkingGarage is currently full, please try again later.")
         
     def pay_For_Parking(self):
         self.currentTicket = {
