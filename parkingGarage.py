@@ -1,23 +1,47 @@
 # Start Your Code here
-class ticketamount:
-    def __init__(self,ticketamount):
-      self.ticketamount = ticketamount
-def isAvaliable(self):
-    return self.ticket == None
+class ParkingGarage():
+    def __init__(self):
+        self.ticketamount = []
+        self.parkingspace = []
+        self.currentTicket = {}
 
-num_tickets = 100
-num_tickets -= 1
+    def isAvaliable(self):
+        self.ticketamount = [100]
+        self.parkingspace = [100]
+        for i in range(len(self.ticketamount)):
+            self.ticketamount[i] = self.ticketamount[i] - 1
+            print(self.ticketamount)
+        for j in range(len(self.parkingspace)):
+            self.parkingspace[j] = self.parkingspace[j] - 1
+            print(self.parkingspace)
+        
+    def pay_For_Parking(self):
+        self.currentTicket = {
+            'Paid': 'False'
+        }
+        paid = input('Please enter your payment')
+        if paid != '':
+            self.currentTicket['Paid'] = 'True'
+            print('Your ticket has been paid, you now have 15 minutes to leave.')
 
-print("Number of available tickets: " + str(num_tickets))
+    def leave_Garage(self):
+        for value in self.currentTicket.values():
+            if value == 'True':
+                print('Thank you, have a nice day')
+            elif value == 'False':
+                paid1 = input('Please enter your payment here!')
+                if paid1 != '':
+                    print("Thank you, have a nice day!")
+        self.ticketamount = [i + 1 for i in self.ticketamount]
+        print(self.ticketamount)
+        self.parkingspace = [j + 1 for j in self.parkingspace]
+        print(self.parkingspace)
 
-class parkingspace:
-    def __init__(self,parkingspace):
-        self.parkingspace = parkingspace
-def IsAvaliable(self):
-        return self.parkingspace == None
+    
 
-num_parkingspace = 100
-num_parkingspace -= 1
+new_ticket = ParkingGarage()
+print(new_ticket.isAvaliable())
+print(new_ticket.pay_For_Parking())
+print(new_ticket.leave_Garage())
 
-print("Number of avaliable parkingspace:" + str(parkingspace))
 
