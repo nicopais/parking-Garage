@@ -1,13 +1,11 @@
 # Start Your Code here
 class ParkingGarage():
-    def __init__(self):
-        self.ticketamount = []
-        self.parkingspace = []
+    def __init__(self, tickets, spaces):
+        self.ticketamount = tickets
+        self.parkingspace = spaces
         self.currentTicket = {}
 
     def isAvaliable(self):
-        self.ticketamount = [100]
-        self.parkingspace = [100]
         for i in range(len(self.ticketamount)):
             self.ticketamount[i] = self.ticketamount[i] - 1
             print(self.ticketamount)
@@ -39,7 +37,7 @@ class ParkingGarage():
 
     
 
-new_ticket = ParkingGarage()
+new_ticket = ParkingGarage([100], [100])
 print(new_ticket.isAvaliable())
 print(new_ticket.pay_For_Parking())
 print(new_ticket.leave_Garage())
