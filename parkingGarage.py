@@ -1,17 +1,24 @@
 # Start Your Code here
 class ParkingGarage():
-    def __init__(self, tickets, spaces):
-        self.ticketamount = tickets
-        self.parkingspace = spaces
-        self.currentTicket = {}
+    def __init__(self, available_tickets, available_parking_spaces):
+        self.available_tickets = available_tickets
+        self.available_parking_spaces = available_parking_spaces
 
-    def isAvaliable(self):
-        for i in range(len(self.ticketamount)):
-            self.ticketamount[i] = self.ticketamount[i] - 1
-            print(self.ticketamount)
-        for j in range(len(self.parkingspace)):
-            self.parkingspace[j] = self.parkingspace[j] - 1
-            print(self.parkingspace)
+    def is_Available(self):
+        if self.available_tickets[0] > 0 and self.available_parking_spaces[0] > 0:
+            return True
+        else:
+            return False
+        
+    def issue_tickets(self):
+        if self.is_Available() == True:
+            self.available_tickets[0] -= 1
+            self.available_parking_spaces[0] -= 1
+            print(self.available_tickets)
+            print(self.available_parking_spaces)
+            print("Ticket issued. Please proceed to park")
+        else:
+            print("Sorry, the ParkingGarage is currently full, please try again later.")
         
     def pay_For_Parking(self):
         self.currentTicket = {
@@ -30,15 +37,16 @@ class ParkingGarage():
                 paid1 = input('Please enter your payment here!')
                 if paid1 != '':
                     print("Thank you, have a nice day!")
-        self.ticketamount = [i + 1 for i in self.ticketamount]
-        print(self.ticketamount)
-        self.parkingspace = [j + 1 for j in self.parkingspace]
-        print(self.parkingspace)
+        self.available_tickets = [i + 1 for i in self.available_tickets]
+        print(self.available_tickets)
+        self.available_parking_spaces = [j + 1 for j in self.available_parking_spaces]
+        print(self.available_parking_spaces)
 
     
 
 new_ticket = ParkingGarage([100], [100])
-print(new_ticket.isAvaliable())
+print(new_ticket.is_Available())
+print(new_ticket.issue_tickets())
 print(new_ticket.pay_For_Parking())
 print(new_ticket.leave_Garage())
 
