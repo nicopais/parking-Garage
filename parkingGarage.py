@@ -1,5 +1,6 @@
 # Start Your Code here
 class ParkingGarage():
+
     def __init__(self, available_tickets, available_parking_spaces):
         self.available_tickets = available_tickets
         self.available_parking_spaces = available_parking_spaces
@@ -43,6 +44,7 @@ class ParkingGarage():
         print(self.available_parking_spaces)
 
     
+
 
 new_ticket = ParkingGarage([100], [100])
 print(new_ticket.is_Available())
